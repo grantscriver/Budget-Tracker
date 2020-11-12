@@ -6,8 +6,6 @@ const FILES_TO_CACHE = [
     //"/manifest.webmanifest",
     "/styles.css",
     "/index.js",
-
-    //"/assets/js/loadImages.js",
 ];
 
 // install
