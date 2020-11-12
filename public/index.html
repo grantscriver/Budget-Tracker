@@ -44,6 +44,38 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
   <script>
+        // We request a database instance.
+        const request = indexedDB.open("budget", 1);
+   
+   // This returns a result that we can then manipulate.
+   request.onsuccess = event => {
+     console.log(request.result);
+   };
+   request.onupgradeneeded = ({ target }) => {
+           let db = target.result;
+           const objectStore = db.createObjectStore("transaction", { autoIncrement: true });
+           //objectStore.createIndex("_id", "_id");
+
+         };
+
+       request.onsuccess = () => {
+       db = request.result;
+       const transaction = db.transaction(["transaction"], "readwrite");
+       const objectStore = transaction.objectStore("transaction");
+       //const statusIndex = objectStore.index("_id");
+
+     };
+
+     request.onerror = function(event) {
+ console.log("Woops! " + event.target.errorCode);
+};
+
+     function saveRecord(record) {
+     const transaction = db.transaction(["transaction"], "readwrite");
+     const objectStore = transaction.objectStore("transaction");
+console.log("record: ",record)
+     objectStore.add(record);
+}
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker.register("service-worker.js").then(reg => {
