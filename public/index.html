@@ -43,7 +43,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
-  <script>
+ 
+ <script>
     // script for online -> offline -> online DB activity
     // request a database instance.
 
@@ -79,9 +80,10 @@
     console.log("record: ",record)
     objectStore.add(record);
 }
+
       
 
-if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator) {
          window.addEventListener("load", () => {
            navigator.serviceWorker.register("service-worker.js").then(reg => {
              console.log("service worker enabled", reg);
@@ -121,6 +123,7 @@ if ("serviceWorker" in navigator) {
 
 // listen to see when back online, then run the function to load the offline data
 window.addEventListener("online", checkDatabase);
-  </script>
+</script>
+
 </body>
 </html>

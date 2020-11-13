@@ -6,6 +6,8 @@ const FILES_TO_CACHE = [
     //"/manifest.webmanifest",
     "/styles.css",
     "/index.js",
+
+    //"/assets/js/loadImages.js",
 ];
 
 // install
@@ -39,6 +41,7 @@ self.addEventListener("activate", function (evt) {
             );
         })
     );
+
     self.clients.claim();
 });
 
