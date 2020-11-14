@@ -65,7 +65,6 @@
       const objectStore = transaction.objectStore("transaction");
       // if online, then run the function to load the offline data
       if (navigator.onLine) {
-        console.log("here 5")
         checkDatabase();
       }
     };

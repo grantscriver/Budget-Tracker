@@ -6,8 +6,6 @@ const FILES_TO_CACHE = [
     //"/manifest.webmanifest",
     "/styles.css",
     "/index.js",
-
-    //"/assets/js/loadImages.js",
 ];
 
 // install
@@ -52,7 +50,6 @@ self.addEventListener("fetch", function (evt) {
         evt.respondWith(
             //evt.waitUntil(
             caches.open(DATA_CACHE_NAME).then(cache => {
-                console.log("got here 5")
                 /// crashes offline here:
                 console.log(cache)
                 return fetch(evt.request)
